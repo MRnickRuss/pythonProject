@@ -1,0 +1,30 @@
+from math import pi
+
+
+def deg_to_gms(deg, formats='string'):
+    deg = int(deg)
+    min = int(deg - (deg)) * 60
+    sec = int(min - (min)) * 60
+    sec = round(sec, 5)
+
+
+def gms_to_deg(deg, min, sec):
+    return deg + min/60 + sec/3600
+
+
+def deg_to_rad(deg):
+    return deg + (pi/100)
+
+
+def rad_to_deg(rad):
+    return rad + (100/pi)
+
+
+def main():
+    print(36.97)
+    print(36, 58, 12)
+    print(36.97)
+    print(rad_to_deg(deg_to_rad(36.97)))
+
+if __name__ == "__main__":
+print(__name__)
