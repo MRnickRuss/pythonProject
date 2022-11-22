@@ -4,7 +4,7 @@ import game_record
 
 def game_start():
    lives = 3
-   game_words = open("Words.txt", mode="r")
+   game_words = open("Words.txt", mode="r", encoding='utf-8')
    game_words = game_words.read().splitlines()
    cur_record = 0
    while lives != 0:

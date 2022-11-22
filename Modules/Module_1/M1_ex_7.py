@@ -1,0 +1,7 @@
+a = int(input())
+s = int(input())
+d = int(input())
+f = int(input())
+g = int(input())
+h = int(input())
+print(f*3600-a*3600+(g*60-s*60)+(h-d))
