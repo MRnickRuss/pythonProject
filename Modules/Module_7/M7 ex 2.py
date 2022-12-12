@@ -1,5 +1,5 @@
 slovar = {}
-n = 3
+n = int(input())
 for i in range(n):
     a = input().split()
     slovar[a[0]] = a[1]
