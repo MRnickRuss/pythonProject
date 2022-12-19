@@ -13,4 +13,4 @@ result.sort()
 result.reverse()
 for i in range(len(result)):
     a = result[i].split()
-    print(f'{a[1]} {a[0]}')
+    print(a[1], a[0], sep=' ')
