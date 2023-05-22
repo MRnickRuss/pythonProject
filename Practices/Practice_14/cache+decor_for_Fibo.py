@@ -3,7 +3,7 @@ import time
 
 def time_of_function(func):
     start = time.perf_counter()
-    result = func(1000)
+    result = func(2)
     end = time.perf_counter() - start
     print(f"Функция {func.__name__} выполняется за {end} секунд")
     return result
@@ -11,6 +11,7 @@ def time_of_function(func):
 
 def fibonacci_cache(func):
     cache = {}
+
     def wrapper(n):
         if n in cache:
             return cache[n]
