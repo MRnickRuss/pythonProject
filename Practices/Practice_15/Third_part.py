@@ -34,7 +34,7 @@ class Student:
         courses_in_progress = ', '.join(self.courses_in_progress)
         finished_courses = ', '.join(self.finished_courses)
         return f'Имя: {self.name}\nФамилия: {self.surname}\nПол: {self.gender}\nСредняя оценка за домашние задания: {avg_grade:.1f}\n' \
-               f'Завершенные курсы: {finished_courses}'
+               f'Завершенные курсы: {finished_courses}\n'
 
 
 class Mentor:
@@ -63,7 +63,7 @@ class Lecturer(Mentor):
     def __str__(self):
         avg_grade = sum(sum(grades) for grades in self.grades.values()) / sum(
             len(grades) for grades in self.grades.values())
-        return f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции: {avg_grade:.1f}'
+        return f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции: {avg_grade:.1f}\n'
 
 
 class Reviewer(Mentor):
@@ -78,7 +78,7 @@ class Reviewer(Mentor):
                 student.grades[course] = [grade]
 
     def __str__(self):
-        return f"Имя: {self.name}\nФамилия: {self.surname}"
+        return f'Имя: {self.name}\nФамилия: {self.surname}\n'
 
 
 course1 = 'Git'
