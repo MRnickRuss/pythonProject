@@ -34,7 +34,7 @@ class Student:
         courses_in_progress = ', '.join(self.courses_in_progress)
         finished_courses = ', '.join(self.finished_courses)
         return f'Имя: {self.name}\nФамилия: {self.surname}\nПол: {self.gender}\nСредняя оценка за домашние задания: {avg_grade:.1f}\n' \
-               f'Курсы в процессе изучения: {courses_in_progress}\nЗавершенные курсы: {finished_courses}'
+               f'Завершенные курсы: {finished_courses}'
 
 
 class Mentor:
