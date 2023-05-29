@@ -1,7 +1,7 @@
 import numpy as np
-import matplotlib
 from PIL import Image
 import time
+import os
 
 
 def _time(func):
@@ -32,10 +32,13 @@ def kmeans(Input, K, Max_iters):
         print('Error = ' + str(error))
     return Kvec, Dmin
 
+#Методом проверок было установлено, чтобы получить картинку лушего качества и не долго, подойдёт 5 итераций и 64 цветов
 @_time
-def Compressor(jpeg, K, Max_Iters):
+def Best_pic(jpeg):
     Datain = np.asarray(Image.open(jpeg), dtype=np.float64)
     ReshapedData = np.reshape(Datain, (np.size(Datain, 0) * np.size(Datain, 1), np.size(Datain, 2)))
+    K = 64  # или 32, при нём тоже неплохо и побыстрее
+    Max_Iters = 5
     Kvec, Dmin = kmeans(ReshapedData, K, Max_Iters)
     Dvec = np.zeros((len(Dmin), len(Kvec[0, :])))
     for jj in range(0, K):
@@ -43,11 +46,10 @@ def Compressor(jpeg, K, Max_Iters):
     imout = np.reshape(np.uint8(Dvec), (np.size(Datain, 0), np.size(Datain, 1), len(Kvec[0, :])))
     im = Image.fromarray(imout, 'RGB')
     im.show()
-    svjpeg= f"F:\pythonProject/Practices/Practice_10/Scikit Compressor/output{K}.png"
+    svjpeg= f"F:\pythonProject/Practices/Practice_10/5 Best Pictures/{jpeg}.png"
     im.save(svjpeg, "JPEG", optimize=True)
+    file_size = os.stat(svjpeg)
+    print(f'Размер файла: {file_size.st_size/1024} КБ')
 
-
-jpeg = "jpeg.png"
-Max_Iters = int(input("Введите количество итераций: "))
-K = int(input("Введите количество цветов: "))
-Compressor(jpeg, K, Max_Iters)
+jpeg = input('Вставьте название ')
+Best_pic(jpeg)
