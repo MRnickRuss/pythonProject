@@ -56,21 +56,10 @@ class Player:
         self.score = 0
 
     def get_move(self):
-        # try:
         cell_num = int(input(self.name + ', Выберите номер поля для хода от 1 до 9: '))
-        # if not cell_num.isdigit():
-        #     print('Enter a number')
-        #     return self.get_move()
         if int(cell_num) < 1 or int(cell_num) > 9:
             print('error')
             return self.get_move()
-            #        # except IndexError:
-        #     print('Вы должны ввести цифру от 1 до 9.')
-        #     return self.get_move()
-        # except ValueError:
-        #     print('Вы должны ввести цифру от 1 до 9.')
-        #     return self.get_move()     print('Number must be 0-9')
-
         return cell_num
 
 
